@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+.form-control{
+  margin-bottom: 10px;
+}
+.add{
+  width: 100%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+tr th,td{
+  font-size: 12px;
+}
