@@ -24,7 +24,7 @@ export class Get extends Component {
     }
 
     refreshList() {
-        fetch('http://quanlyapi.somee.com/api/NhanVien')
+        fetch('https://quanlyapi.somee.com/api/NhanVien')
             .then(response => response.json())
             .then(data => {
                 this.setState({ deps: data })
@@ -36,7 +36,7 @@ export class Get extends Component {
 
     deleteDep(depmaNv) {
         if (window.confirm('Bạn có chắc xóa người này?')) {
-            fetch('http://quanlyapi.somee.com/api/NhanVien?maNv=' + depmaNv, {
+            fetch('https://quanlyapi.somee.com/api/NhanVien?maNv=' + depmaNv, {
                 method: 'DELETE',
                 headers: {
                     'Accept': 'applicontion/json',

@@ -11,14 +11,17 @@ export class Edit extends Component {
 
         // URL
         //AUTO
-        let url = 'http://quanlyapi.somee.com/api/NhanVien?';
+        let url = 'https://quanlyapi.somee.com/api/NhanVien/?';
         for (let key of Object.keys(event.target)) {
             console.log(key, event.target[key])
             url += `${event.target[key].name}=${event.target[key].value}&`
         }
+
         console.log(url)
 
         // Fetch
+
+        // THen
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -40,10 +43,10 @@ export class Edit extends Component {
         })
             .then(res => res.json())
             .then((result) => {
-                alert('Sửa thành công')
+                alert(result)
             },
                 (error) => {
-                    alert('Sửa thất bại')
+                    alert('Failed')
                 })
     }
     render() {

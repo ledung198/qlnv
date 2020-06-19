@@ -12,7 +12,7 @@ export class Post extends Component {
 
         // URL
         //AUTO
-        let url = 'http://quanlyapi.somee.com/api/NhanVien?';
+        let url = 'https://quanlyapi.somee.com/api/NhanVien?';
         for (let key of Object.keys(event.target)) {
             console.log(key, event.target[key])
             url += `${event.target[key].name}=${event.target[key].value}&`
