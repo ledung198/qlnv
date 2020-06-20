@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 
 
 export class Edit extends Component {
@@ -11,7 +12,7 @@ export class Edit extends Component {
 
         // URL
         //AUTO
-        let url = 'https://quanlyapi.somee.com/api/NhanVien/?';
+        let url = 'https://quanlyapi.somee.com/api/NhanVien?';
         for (let key of Object.keys(event.target)) {
             console.log(key, event.target[key])
             url += `${event.target[key].name}=${event.target[key].value}&`
@@ -43,10 +44,18 @@ export class Edit extends Component {
         })
             .then(res => res.json())
             .then((result) => {
-                alert(result)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thêm Thành Công',
+                    showConfirmButton: true,
+                })
             },
                 (error) => {
-                    alert('Failed')
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Thêm thất bại!',
+                    })
                 })
     }
     render() {

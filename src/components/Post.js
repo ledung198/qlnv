@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 import './../App.css';
+import Swal from 'sweetalert2';
+
 
 export class Post extends Component {
     constructor(props) {
         super(props);
     }
-    
+
     handleSubmit(event) {
         event.preventDefault();
 
@@ -43,10 +45,18 @@ export class Post extends Component {
         })
             .then(res => res.json())
             .then((result) => {
-                alert('Thêm Thành Công')
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thêm Thành Công',
+                    showConfirmButton: true,
+                })
             },
                 (error) => {
-                    alert('Thêm Thất Bại')
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Thêm thất bại!',
+                    })
                 })
     }
 
@@ -54,9 +64,9 @@ export class Post extends Component {
         return (
             <div>
                 <div className="container">
-                    <h1 style={{textAlign:"center"}}>Thêm Nhân Viên</h1>
+                    <h1 style={{ textAlign: "center" }}>Thêm Nhân Viên</h1>
                     <Row>
-                        <Col sm={6} style={{margin:"auto"}}>
+                        <Col sm={6} style={{ margin: "auto" }}>
                             <Form onSubmit={this.handleSubmit}>
                                 <Form.Group className="form-add">
                                     <Form.Control type="number" name="maNv" required placeholder="Mã Nhân Viên"></Form.Control>
@@ -71,7 +81,7 @@ export class Post extends Component {
                                     <Form.Control type="text" name="bacLuong" required placeholder="Bậc Lương"></Form.Control>
                                 </Form.Group>
                                 <Form.Group >
-                                    <Button variant="primary" type="submit" style={{margin:"auto"}} className="add">Thêm</Button>
+                                    <Button variant="primary" type="submit" style={{ margin: "auto" }} className="add">Thêm</Button>
                                 </Form.Group>
                             </Form>
                         </Col>
